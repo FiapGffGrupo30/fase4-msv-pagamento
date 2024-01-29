@@ -3,6 +3,8 @@ package br.fiap.gff.payments.domain.receipts;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -35,17 +37,30 @@ public class ReceiptServiceTest {
     }
 
     @Test
-    void testGetByCustomerId() {
-
+    void shouldGetByCustomerId() {
+        when(dao.findByCustomerId(1L)).thenReturn(List.of(RECEIPT));
+        // when
+        List<Receipt> act = service.getByCustomerId(1L);
+        // then
+        assert act != null && act.size() == 1;
     }
 
     @Test
-    void testGetById() {
-
+    void shouldGetById() {
+        when(dao.findById("123")).thenReturn(java.util.Optional.of(RECEIPT));
+        // when
+        Receipt act = service.getById("123");
+        // then
+        assert act != null && act.id().equals(RECEIPT.id());
     }
 
     @Test
-    void testSave() {
-
+    void shouldSave() {
+        // given
+        when(dao.save(any(Receipt.class))).thenReturn(RECEIPT);
+        // when
+        Receipt act = service.save(RECEIPT);
+        // then
+        assert act != null && act.id().equals(RECEIPT.id());
     }
 }
