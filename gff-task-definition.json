@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "gff-task-pagamentos",
-            "image": "nome-da-imagem-do-container-pagamentos:tag",
+            "image": "571192913109.dkr.ecr.us-east-1.amazonaws.com/gff-repository-pagamentos",
             "cpu": 0,
             "portMappings": [
                 {
