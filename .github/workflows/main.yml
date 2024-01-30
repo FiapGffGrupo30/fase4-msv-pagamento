@@ -1,4 +1,4 @@
-name: Java CI/CD to Pedido
+name: Java CI/CD to pagamento
 
 on:
   push:
