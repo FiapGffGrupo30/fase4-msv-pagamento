@@ -3,7 +3,7 @@
 Api responsável por gerenciar os pagamentos da aplicação de Sistema de Gerenciamento de Fast Food.
 
 ## **Objetivo**
-A API de pedidos possui as ferramentas que possibilitam ao cliente, criar, editar, pesquisar, alterar e deletar pedidos.
+A API de pagamentos possui as ferramentas que possibilitam ao cliente, criar, editar, pesquisar, alterar e deletar pagamentos.
 
 ## **Tecnologias utilizadas**
 - [Git](https://git-scm.com/downloads)
