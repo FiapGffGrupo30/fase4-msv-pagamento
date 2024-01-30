@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:us-east-1:571192913109:task-definition/gff-task-definition-payments:2",
     "containerDefinitions": [
         {
-            "name": "gff-task-pagamentos",
+            "name": "gff-repository-pagamentos",
             "image": "571192913109.dkr.ecr.us-east-1.amazonaws.com/gff-repository-pagamentos",
             "cpu": 0,
             "portMappings": [
