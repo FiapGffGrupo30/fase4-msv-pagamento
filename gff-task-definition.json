@@ -1,5 +1,5 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:571192913109:task-definition/gff-task-definition-payments:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:571192913109:task-definition/gff-task-definition-payments:2",
     "containerDefinitions": [
         {
             "name": "gff-task-pagamentos",
@@ -7,9 +7,11 @@
             "cpu": 0,
             "portMappings": [
                 {
+                    "name": "gff-pagamento-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
-                    "protocol": "tcp"
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
@@ -19,11 +21,22 @@
         }
     ],
     "family": "gff-task-definition-payments",
+    "taskRoleArn": "arn:aws:iam::571192913109:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::571192913109:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.task-iam-role"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
         },
@@ -41,7 +54,11 @@
     ],
     "cpu": "256",
     "memory": "512",
-    "registeredAt": "2024-01-29T23:09:02.897Z",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-01-30T02:14:35.053Z",
     "registeredBy": "arn:aws:iam::571192913109:root",
     "tags": []
 }
