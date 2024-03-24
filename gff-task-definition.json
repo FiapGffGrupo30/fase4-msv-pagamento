@@ -1,38 +1,56 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:571192913109:task-definition/gff-task-definition-payments:2",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:746834987111:task-definition/fargate03-tsk:1",
     "containerDefinitions": [
         {
-            "name": "gff-repository-pagamentos",
-            "image": "571192913109.dkr.ecr.us-east-1.amazonaws.com/gff-repository-pagamentos",
+            "name": "fargate03-user",
+            "image": "746834987111.dkr.ecr.us-east-1.amazonaws.com/fargate03:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "gff-pagamento-8080-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
+                    "name": "user",
+                    "containerPort": 8082,
+                    "hostPort": 8082,
                     "protocol": "tcp",
                     "appProtocol": "http"
                 }
             ],
             "essential": true,
             "environment": [],
+            "environmentFiles": [],
             "mountPoints": [],
-            "volumesFrom": []
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/fargate03-tsk",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
     ],
-    "family": "gff-task-definition-payments",
-    "taskRoleArn": "arn:aws:iam::571192913109:role/ecsTaskExecutionRole",
-    "executionRoleArn": "arn:aws:iam::571192913109:role/ecsTaskExecutionRole",
+    "family": "fargate03-tsk",
+    "executionRoleArn": "arn:aws:iam::746834987111:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 2,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
         {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
         },
         {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -42,6 +60,9 @@
         },
         {
             "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
     "placementConstraints": [],
@@ -52,13 +73,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "256",
-    "memory": "512",
+    "cpu": "2048",
+    "memory": "5120",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2024-01-30T02:14:35.053Z",
-    "registeredBy": "arn:aws:iam::571192913109:root",
+    "registeredAt": "2024-03-24T15:21:25.633Z",
+    "registeredBy": "arn:aws:iam::746834987111:user/adminT30",
     "tags": []
 }
